@@ -432,6 +432,7 @@ Ayrıntılar ve teknik açıklamalar CLAUDE.md'nin "Bilinen Sorunlar ve Teknik B
 - [x] Geliştirme araçları kalıcı olarak kuruldu: resmi Expo eklentisi (24 skill), mobile-mcp, android-mcp, erişilebilirlik / yaşam döngüsü / derin bağlantı skill'leri, skills-manager uygulaması (2 Ekim 2026)
 - [x] Tüm projelerde geçerli kişisel çalışma standardı (`~/.claude/CLAUDE.md`) ve ortak skill klasörüne 3 skill: Türkçe arayüz metni, KVKK kontrol listesi, sahip için belge düzeni. Sonra Bakarım'a özel "Türkçe tanıyıcı ekleme" skill'i (2 Ekim 2026)
 - [x] İkinci araç paketi kalıcı olarak kuruldu: superpowers, context7, playwright, Claude Code'un geliştirme eklentileri (kod inceleme, PR inceleme, özellik geliştirme, güvenlik, commit), wshobson koleksiyonundan 10 uzman eklenti, Anthropic örnek skill'leri (2 Ekim 2026)
+- [x] Skill listesine ayrılan yer iki katına çıkarıldı. Kurulu 138 skill'in hepsi artık açıklamasıyla görünüyor, böylece Claude doğru skill'i kendiliğinden seçebiliyor. Bedeli mesaj başına yaklaşık 2-3 bin token (2 Ekim 2026)
 - [ ] ⚠️ npm paket çakışması: yeni paket eklerken npm hata veriyor. Uygulama sağlıklı (Expo kontrolü 21/21 temiz) ama metin okuyucu kurulmadan önce çözülmeli.
 - [ ] Tünel adresini bulup QR sayfasını tek komutla açan küçük bir yardımcı
 - [ ] Gerçek ana ekran gelince deneme ekranını geliştirici menüsüne taşıma, kullanıcıya giden sürümden çıkarma
