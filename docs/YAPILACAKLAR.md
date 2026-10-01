@@ -32,7 +32,7 @@
 
 ## 🙋 Şu an senden beklenenler
 
-1. 📱 **Deneme ekranını iPhone'unda aç.** Expo Go'ya **1enesgok** hesabıyla giriş yap, bilgisayarında açtığım sayfadaki QR kodunu Kamera ile okut. Bağlantı artık internet üzerinden (tünel) çalışıyor, Windows ağ ayarı engel olmuyor.
+1. 🧪 **Deneme ekranında kendi mesajlarını dene.** Telefonundaki gerçek SMS'leri, WhatsApp mesajlarını ve e-postaları kopyalayıp yapıştır. Yanlış ya da eksik tanınanı bana yaz; kişisel bilgileri silebilirsin. Yapıştırdığın metin hiçbir yere gitmiyor.
 2. 📸 **Ekran görüntüsü topla.** Kendi iPhone'undan ve Android kullanan birinin telefonundan topla, çünkü aynı mesaj iki telefonda farklı görünüyor. Her türden en az 20, toplamda 300'den fazla olsun. `ekran-goruntuleri/` klasörüne koy, bu klasör GitHub'a gitmez. İsim, TC kimlik no, telefon numarası ve başkalarının IBAN'ı gibi kişisel bilgileri karala.
 
 🍎▶️ **Apple Developer ve Google Play hesapları sonraya kaldı** (senin kararın, 2 Ekim 2026). Apple hesabı yalnızca mağaza için değil: iPhone'da ekran görüntüsünü gerçekten okuyan sürümü denemek ve TestFlight betası için de gerekiyor. O zamana kadar gerçek okuma testlerini ödünç bir Android telefonla ücretsiz yaparız.
@@ -95,7 +95,7 @@
 - [x] Test aracı (Jest) ve kod denetimi (ESLint) (2 Ekim 2026)
 - [x] Ekran altyapısı (Expo Router) (2 Ekim 2026)
 - [x] 📱 "Tanıma denemesi" ekranı: yapıştırılan metinde bulunan tarih ve tutarları gösterir, Expo Go'da çalışır (2 Ekim 2026)
-- [ ] 👤 Deneme ekranını iPhone'unda Expo Go ile aç
+- [x] 👤 Deneme ekranını iPhone'unda Expo Go ile aç (2 Ekim 2026)
 
 ## 2️⃣ 🧠 Türkçe tanıma motoru
 
