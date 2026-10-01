@@ -16,7 +16,7 @@ Bu dosya projenin hafızasıdır. Her önemli karar ve adım buraya yazılır.
 - **Platform:** Android ve iOS aynı anda. React Native + Expo (TypeScript), derlemeler bulutta (EAS).
 - **Çıkış stratejisi:** Aceleyle MVP çıkarılmayacak. Önce kapalı beta (TestFlight + Google Play kapalı testi; Play, yeni hesaplardan 12 test kullanıcısıyla 14 gün test istiyor), ardından iki mağazada aynı gün herkese açık çıkış.
 - **Rol dağılımı:** Ürün sahibi yönetir, kodu Claude yazar.
-- **Kod deposu:** GitHub'da özel (private) depo: https://github.com/hayrigok/sonra-bakarim Ürün sahibinin topladığı gerçek ekran görüntüleri `ekran-goruntuleri/` klasöründe durur ve GitHub'a yüklenmez. Testlerdeki örnek metinlerde gerçek kişisel bilgi kullanılmaz (isim, IBAN, takip numarası uydurulur).
+- **Kod deposu:** GitHub'da özel (private) depo (https://github.com/hayrigok/sonra-bakarim). Ürün sahibinin topladığı gerçek ekran görüntüleri `ekran-goruntuleri/` klasöründe durur ve GitHub'a yüklenmez. Testlerdeki örnek metinlerde gerçek kişisel bilgi kullanılmaz (isim, IBAN, takip numarası uydurulur).
 
 ## Uygulamanın tanıyacağı içerikler (karar 2026-10-01)
 
