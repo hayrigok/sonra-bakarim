@@ -48,4 +48,4 @@ Competitors exist globally (Google Pixel Screenshots, SnapActions, Captr, Skreen
 ## Environment
 
 - Development machine is Windows with no Mac, Java or Android SDK. Build iOS and Android in the cloud with EAS (`npx eas-cli@latest build`), and test on physical phones with development builds.
-- The owner's own phone is an iPhone, so device testing needs a paid Apple Developer account first. Android testing uses a borrowed phone.
+- The owner's own phone is an iPhone. The owner postponed the paid Apple Developer and Google Play accounts, so until then: test pure-JS features on the iPhone in Expo Go (the "Tanıma denemesi" playground at `src/app/index.tsx`; Expo Go on a physical iPhone needs the same Expo account signed in on the phone and in the CLI), and test native features such as OCR with an EAS development build on a borrowed Android phone. Keep the playground working in Expo Go: do not import native modules that Expo Go lacks into it.

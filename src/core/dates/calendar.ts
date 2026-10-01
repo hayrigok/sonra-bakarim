@@ -16,6 +16,11 @@ function toUtcMs(date: CalendarDate): number {
   return Date.UTC(date.year, date.month - 1, date.day);
 }
 
+/** The local calendar day of a JavaScript date, such as the moment a screenshot was taken. */
+export function toCalendarDate(date: Date): CalendarDate {
+  return { year: date.getFullYear(), month: date.getMonth() + 1, day: date.getDate() };
+}
+
 export function daysInMonth(year: number, month: number): number {
   return new Date(Date.UTC(year, month, 0)).getUTCDate();
 }

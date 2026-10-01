@@ -32,11 +32,21 @@
 
 ## 🙋 Şu an senden beklenenler
 
-1. 📸 **Ekran görüntüsü topla.** Kendi iPhone'undan ve Android kullanan birinin telefonundan topla, çünkü aynı mesaj iki telefonda farklı görünüyor. Her türden en az 20, toplamda 300'den fazla olsun. `ekran-goruntuleri/` klasörüne koy, bu klasör GitHub'a gitmez. İsim, TC kimlik no, telefon numarası ve başkalarının IBAN'ı gibi kişisel bilgileri karala.
-2. 🧭 **Şahıs mı şirket mi?** Apple ve Google hesaplarını açmadan önce karar vermemiz gerekiyor. Ayrıntısı aşağıda, "Bekleyen kararlar" bölümünde.
-3. 🔷 **Expo hesabı aç.** expo.dev üzerinden, ücretsiz, 5 dakika sürer. Hesap adını bana yaz.
-4. 🍎 **Apple Developer üyeliğine başvur (yıllık 99$).** Telefonun iPhone olduğu için uygulamayı telefonunda denemenin tek yolu bu. 3. aşamadan önce şart. Onay birkaç gün sürebilir.
-5. ▶️ **Google Play Console hesabı aç (tek seferlik 25$).** Acil değil ama erken açmak iyi. Kimlik doğrulaması günler sürebiliyor. Google ayrıca gerçek bir Android telefondan, Play Console uygulamasıyla cihaz doğrulaması istiyor (Android 10 ve üstü). Bunun için ödünç bir telefon lazım.
+1. 📱 **iPhone'una Expo Go'yu indir.** App Store'da ücretsiz. Uygulamayı geliştirirken telefonunda denemenin hesapsız ve parasız yolu bu.
+2. 🔷 **Expo hesabı aç.** expo.dev üzerinden, ücretsiz, 5 dakika sürer. Aynı hesapla hem Expo Go'ya hem de bilgisayardan açılan giriş sayfasına giriş yap. iPhone'da Expo Go, projeyi ancak iki tarafta aynı hesap açıksa gösteriyor.
+3. 📸 **Ekran görüntüsü topla.** Kendi iPhone'undan ve Android kullanan birinin telefonundan topla, çünkü aynı mesaj iki telefonda farklı görünüyor. Her türden en az 20, toplamda 300'den fazla olsun. `ekran-goruntuleri/` klasörüne koy, bu klasör GitHub'a gitmez. İsim, TC kimlik no, telefon numarası ve başkalarının IBAN'ı gibi kişisel bilgileri karala.
+
+🍎▶️ **Apple Developer ve Google Play hesapları sonraya kaldı** (senin kararın, 2 Ekim 2026). Apple hesabı yalnızca mağaza için değil: iPhone'da ekran görüntüsünü gerçekten okuyan sürümü denemek ve TestFlight betası için de gerekiyor. O zamana kadar gerçek okuma testlerini ödünç bir Android telefonla ücretsiz yaparız.
+
+## 🧪 Nasıl test ediyoruz
+
+| Ne test ediliyor | Nasıl | Hesap / para |
+|---|---|---|
+| 🧠 Tanıma motoru | Bilgisayarda otomatik testler, her değişiklikte | Gerekmiyor |
+| 📸 Gerçek içerik | `ekran-goruntuleri/` klasörüne attığın görüntüleri ben okuyup "uygulama burada şunu bulurdu" raporu çıkarırım, hataları düzeltirim. Görüntüler kalıcı teste dönüşür. | Gerekmiyor |
+| 📱 iPhone'da deneme | Expo Go'da "Tanıma denemesi" ekranı: bir mesajı kopyalayıp yapıştırırsın, uygulamanın bulduklarını anında görürsün | Ücretsiz Expo hesabı |
+| 🔍 Ekran görüntüsünden okuma ve galeri taraması | Ödünç Android telefona kurulan deneme sürümü (3. aşama) | Ücretsiz Expo hesabı |
+| 🍎 iPhone'da okuma, Paylaş menüsü, TestFlight | iPhone'una kurulan deneme sürümü | Apple Developer (yıllık 99$) |
 
 ## 🧭 Bekleyen kararlar
 
@@ -84,6 +94,9 @@
 - [x] CLAUDE.md ve yol haritası (1 Ekim 2026)
 - [x] GitHub'da özel depo (2 Ekim 2026)
 - [x] Test aracı (Jest) ve kod denetimi (ESLint) (2 Ekim 2026)
+- [x] Ekran altyapısı (Expo Router) (2 Ekim 2026)
+- [x] 📱 "Tanıma denemesi" ekranı: yapıştırılan metinde bulunan tarih ve tutarları gösterir, Expo Go'da çalışır (2 Ekim 2026)
+- [ ] 👤 Deneme ekranını iPhone'unda Expo Go ile aç
 
 ## 2️⃣ 🧠 Türkçe tanıma motoru
 
@@ -196,17 +209,21 @@
 
 ## 3️⃣ 📷 Telefonda okuma ve galeri tarama
 
-🎯 **Bitti sayılması için:** Galerinin tamamı senin iPhone'unda taranıyor ve bulunanlar telefonda kayıtlı.
+🎯 **Bitti sayılması için:** Galerinin tamamı telefonda taranıyor ve bulunanlar telefonda kayıtlı. Önce ödünç Android'de, Apple hesabı açılınca senin iPhone'unda.
 
 ### 🔑 Hazırlık
 - [ ] 👤 🔷 Expo hesabı
-- [ ] 👤 🍎💰 Apple Developer üyeliği
 - [ ] 🧭 Uygulama kimliği kararı
 - [ ] Bulutta derleme (EAS) kurulumu: projeyi bağlama ve geliştirme, test ve mağaza derlemesi ayarları
+- [ ] 👤 Ödünç bir Android telefon bul (Android 10 ve üstü; mümkünse Samsung Galaxy A ya da Xiaomi Redmi)
+- [ ] İlk deneme sürümü ödünç Android'de. Kurulum dosyası bağlantıyla yüklenir, hesap ve ücret gerekmez.
+- [ ] ⚠️💰 Bulutta derlemenin ücretsiz planında aylık sınır ve sıra bekleme var. Yetmezse senin onayınla ücretli plana geçeriz.
+
+#### 🍎 iPhone'da gerçek okuma (Apple hesabı açılınca)
+- [ ] 👤 🍎💰 Apple Developer üyeliği (yıllık 99$)
 - [ ] 👤 iPhone'unu kaydet: gönderdiğim bağlantıyı iPhone'da açıp profili yükle
 - [ ] 👤 iPhone'da Geliştirici Modu'nu aç: Ayarlar → Gizlilik ve Güvenlik → Geliştirici Modu (ilk kurulumdan sonra istenir)
 - [ ] İlk deneme sürümü iPhone'unda. Bilgisayardaki değişiklikler telefona anında yansır. Telefon ve bilgisayar aynı Wi-Fi'da olmalı.
-- [ ] ⚠️💰 Bulutta derlemenin ücretsiz planında aylık sınır ve sıra bekleme var. Yetmezse senin onayınla ücretli plana geçeriz.
 
 ### 🔍 Metin okuyucu (OCR)
 - [ ] Google ML Kit, iki telefonda da aynı okuma kalitesini sağlıyor. Expo'ya uyumlu iki aday kütüphaneyi deneyip birini seçeceğim.
