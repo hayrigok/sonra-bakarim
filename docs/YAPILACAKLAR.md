@@ -32,9 +32,8 @@
 
 ## 🙋 Şu an senden beklenenler
 
-1. 📱 **iPhone'una Expo Go'yu indir.** App Store'da ücretsiz. Uygulamayı geliştirirken telefonunda denemenin hesapsız ve parasız yolu bu.
-2. 🔷 **Expo hesabı aç.** expo.dev üzerinden, ücretsiz, 5 dakika sürer. Aynı hesapla hem Expo Go'ya hem de bilgisayardan açılan giriş sayfasına giriş yap. iPhone'da Expo Go, projeyi ancak iki tarafta aynı hesap açıksa gösteriyor.
-3. 📸 **Ekran görüntüsü topla.** Kendi iPhone'undan ve Android kullanan birinin telefonundan topla, çünkü aynı mesaj iki telefonda farklı görünüyor. Her türden en az 20, toplamda 300'den fazla olsun. `ekran-goruntuleri/` klasörüne koy, bu klasör GitHub'a gitmez. İsim, TC kimlik no, telefon numarası ve başkalarının IBAN'ı gibi kişisel bilgileri karala.
+1. 📱 **Deneme ekranını iPhone'unda aç.** Expo Go'ya **1enesgok** hesabıyla giriş yap, bilgisayarında açtığım sayfadaki QR kodunu Kamera ile okut. Bağlantı artık internet üzerinden (tünel) çalışıyor, Windows ağ ayarı engel olmuyor.
+2. 📸 **Ekran görüntüsü topla.** Kendi iPhone'undan ve Android kullanan birinin telefonundan topla, çünkü aynı mesaj iki telefonda farklı görünüyor. Her türden en az 20, toplamda 300'den fazla olsun. `ekran-goruntuleri/` klasörüne koy, bu klasör GitHub'a gitmez. İsim, TC kimlik no, telefon numarası ve başkalarının IBAN'ı gibi kişisel bilgileri karala.
 
 🍎▶️ **Apple Developer ve Google Play hesapları sonraya kaldı** (senin kararın, 2 Ekim 2026). Apple hesabı yalnızca mağaza için değil: iPhone'da ekran görüntüsünü gerçekten okuyan sürümü denemek ve TestFlight betası için de gerekiyor. O zamana kadar gerçek okuma testlerini ödünç bir Android telefonla ücretsiz yaparız.
 
@@ -212,9 +211,11 @@
 🎯 **Bitti sayılması için:** Galerinin tamamı telefonda taranıyor ve bulunanlar telefonda kayıtlı. Önce ödünç Android'de, Apple hesabı açılınca senin iPhone'unda.
 
 ### 🔑 Hazırlık
-- [ ] 👤 🔷 Expo hesabı
+- [x] 👤 🔷 Expo hesabı (2 Ekim 2026)
+- [x] Projeyi expo.dev'e bağlama (`eas init`, proje sahibi enesgoks-team) (2 Ekim 2026)
 - [ ] 🧭 Uygulama kimliği kararı
-- [ ] Bulutta derleme (EAS) kurulumu: projeyi bağlama ve geliştirme, test ve mağaza derlemesi ayarları
+- [ ] ⚠️ npm paket çakışmasını çöz: metin okuyucu kütüphanesi kurulamadan önce şart (bkz. "Bakım ve teknik borç")
+- [ ] Bulutta derleme ayarları: geliştirme, test ve mağaza profilleri
 - [ ] 👤 Ödünç bir Android telefon bul (Android 10 ve üstü; mümkünse Samsung Galaxy A ya da Xiaomi Redmi)
 - [ ] İlk deneme sürümü ödünç Android'de. Kurulum dosyası bağlantıyla yüklenir, hesap ve ücret gerekmez.
 - [ ] ⚠️💰 Bulutta derlemenin ücretsiz planında aylık sınır ve sıra bekleme var. Yetmezse senin onayınla ücretli plana geçeriz.
@@ -419,6 +420,16 @@
 - [ ] 👤 Yorumlara Türkçe yanıt (taslakları ben hazırlarım)
 - [ ] Hızlı düzeltme güncellemesi hazırda bekler
 - [ ] Çökmeleri ve mağaza puanını takip
+
+## 🛠️ Bakım ve teknik borç
+
+Ayrıntılar ve teknik açıklamalar CLAUDE.md'nin "Bilinen Sorunlar ve Teknik Borç" bölümünde.
+
+- [x] CLAUDE.md'yi sevgilify'daki çalışma standardıyla yeniden yazma: doğrulama kapısı, Windows tuzakları, motorun nasıl çalıştığı, test tablosu, bilinen sorunlar (2 Ekim 2026)
+- [x] Telefona internet üzerinden bağlanma (tünel): Windows'un "Ortak ağ" engelini aşıyor (2 Ekim 2026)
+- [ ] ⚠️ npm paket çakışması: yeni paket eklerken npm hata veriyor. Uygulama sağlıklı (Expo kontrolü 21/21 temiz) ama metin okuyucu kurulmadan önce çözülmeli.
+- [ ] Tünel adresini bulup QR sayfasını tek komutla açan küçük bir yardımcı
+- [ ] Gerçek ana ekran gelince deneme ekranını geliştirici menüsüne taşıma, kullanıcıya giden sürümden çıkarma
 
 ## 🔭 Çıkıştan sonra: fikir havuzu
 - 💡🔒 Otomatik kargo takibi (senin onayınla)

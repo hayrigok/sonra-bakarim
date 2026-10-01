@@ -18,6 +18,7 @@ Bu dosya projenin hafızasıdır. Her önemli karar ve adım buraya yazılır.
 - **Rol dağılımı:** Ürün sahibi yönetir, kodu Claude yazar.
 - **Kod deposu:** GitHub'da özel (private) depo (https://github.com/hayrigok/sonra-bakarim). Ürün sahibinin topladığı gerçek ekran görüntüleri `ekran-goruntuleri/` klasöründe durur ve GitHub'a yüklenmez. Testlerdeki örnek metinlerde gerçek kişisel bilgi kullanılmaz (isim, IBAN, takip numarası uydurulur).
 - **Test telefonları ve hesaplar (2026-10-02):** Ürün sahibinin telefonu iPhone. Apple Developer ve Google Play hesapları sonraya bırakıldı (ürün sahibinin kararı). O zamana kadar test şöyle yapılıyor: tanıma motoru bilgisayarda otomatik testlerle; gerçek içerik `ekran-goruntuleri/` klasörüyle; iPhone'da Expo Go'daki "Tanıma denemesi" ekranıyla (ücretsiz Expo hesabı yeterli); ekran görüntüsünden okuma ve galeri taraması ise ödünç bir Android telefona kurulan deneme sürümüyle. Apple hesabı, iPhone'da gerçek okuma testinden ve TestFlight betasından önce açılacak. Google Play'in cihaz doğrulaması da ödünç Android telefonla yapılacak.
+- **Çalışma standardı (2026-10-02):** Ürün sahibinin sevgilify projesinde yerleştirdiği çalışma kuralları bu projeye uyarlandı ve CLAUDE.md'ye yazıldı: kıdemli yazılımcı kalitesi, her işten sonra doğrulama kapısı (test, tip kontrolü, lint, paketleme), motorun nasıl çalıştığının ve bilinen sorunların yazılı tutulması. **GitHub'a yükleme (push) yalnızca ürün sahibinin açık onayıyla yapılır; her yükleme ayrı onay ister.**
 
 ## Uygulamanın tanıyacağı içerikler (karar 2026-10-01)
 
