@@ -196,14 +196,35 @@ Yeni kod yazarken bunları büyütme. Durumlar: 🔴 açık ve önemli, 🟡 aç
 
 ### Kurulu geliştirme araçları (kullanıcı düzeyinde, tüm projelerde, 2026-10-02)
 
-Claude CLI PATH'te değil; VS Code eklentisinin içindeki `claude.exe` ile yönetilir (`~/.vscode/extensions/anthropic.claude-code-*/resources/native-binary/claude.exe`). MCP ayarları `~/.claude.json`'da durur.
+Claude CLI PATH'te değil; VS Code eklentisinin içindeki `claude.exe` ile yönetilir (`~/.vscode/extensions/anthropic.claude-code-*/resources/native-binary/claude.exe`; `plugin install`, `plugin details`, `mcp list`). MCP ayarları `~/.claude.json`'da, eklenti koleksiyonları `~/.claude/settings.json`'da durur. Her oturuma eklentilerden gelen sabit yük yaklaşık 13.700 token.
+
+**Eklentiler (eklenti koleksiyonu → eklenti)**
+
+| Koleksiyon | Eklenti | Ne işe yarar | Not |
+|---|---|---|---|
+| Resmi (`claude-plugins-official`) | `expo` | 24 Expo skill'i + Expo MCP | Kullanım istatistiği isteğe bağlı ve kapalı. Expo MCP bir kerelik giriş ister (`/mcp`). |
+| Resmi | `superpowers` (obra) | Beyin fırtınası, plan yazma, önce test, sistematik hata ayıklama, tamamlamadan önce doğrulama | Her oturum başında "uygun skill varsa kullanmak zorunlu" talimatını ekler. Kendi kuralına göre **CLAUDE.md'deki talimatlar skill'lerden önce gelir.** |
+| Resmi | `context7` | Kütüphanelerin güncel belgeleri (MCP) | Bir kerelik giriş ister (`/mcp`). Sorgular Upstash'e gider; kullanıcı verisi değil, kütüphane adı ve soru. |
+| Resmi | `playwright` | Tarayıcı otomasyonu (MCP) | Sahibin kuralı: doğrulama için tarayıcı açmadan önce sor. Sahibin kendi Chrome'una dokunma. |
+| Resmi | `code-review`, `pr-review-toolkit`, `feature-dev`, `commit-commands` | Kod incelemesi, PR inceleme ajanları, özellik geliştirme akışı, commit komutları | Push kuralı geçerli: yüklemeden önce sahibe sor. |
+| Resmi | `security-guidance` | Düzenlemede tehlikeli kalıp uyarısı; yanıt sonunda, commit ve push'ta arka planda Claude ile güvenlik incelemesi | Kullanım hakkından harcar (oturum başına en fazla 3 yanıt sonu, saatte 20 commit incelemesi). İlk oturumda `~/.claude/security/` altına Python ortamı kurar. Bulguları ciddiye al ve yanıtla. Kapatmak için `SECURITY_GUIDANCE_DISABLE=1`. |
+| wshobson (`claude-code-workflows`) | `javascript-typescript`, `frontend-mobile-development`, `ui-design`, `accessibility-compliance`, `frontend-mobile-security`, `backend-api-security`, `security-scanning`, `database-design`, `seo-technical-optimization`, `unit-testing` | Sahibin projelerine (React Native/Expo, Next.js, Postgres, e-ticaret, SEO) uyan uzman ajanlar ve skill'ler | 94 eklentilik koleksiyonun kalanı ekli ama kurulu değil; `/plugin` ile tek tek kurulabilir. |
+| Anthropic (`anthropic-agent-skills`) | `example-skills` | webapp-testing, mcp-builder, canvas-design, theme-factory, doc-coauthoring vb. | `frontend-design` ve `skill-creator` başka kaynaklarda da var, kopyaları aynı içerik. |
+
+**MCP sunucuları ve kullanıcı skill'leri**
 
 | Araç | Ne işe yarar | Not |
 |---|---|---|
-| Expo resmi eklentisi (`expo@claude-plugins-official`) | 24 Expo skill'i (Router, EAS, mağazalar, SDK yükseltme, tasarım sistemi) + Expo MCP | Kullanım istatistiği isteğe bağlı ve kapalı. Expo MCP bir kerelik giriş ister (Claude'da `/mcp`). |
 | `mobile-mcp` | Telefonu ya da emülatörü yönetmek: ekran görüntüsü, dokunma, uygulama kurma, loglar | `MOBILEMCP_DISABLE_TELEMETRY=1` ile kullanım verisi kapalı. Windows'ta `cmd /c npx` ile başlar. Android için ADB ve USB hata ayıklama gerekir. Windows'tan iPhone yönetimi doğrulanmadı. |
 | `android-mcp` | Android telefonu ADB ve erişilebilirlik ağacıyla yönetmek | `uvx --python 3.13` ile çalışır (Python 3.13 uv'nin kendi alanında, sistemdeki 3.12'ye dokunmaz). ADB ve Android 10+ telefon gerekir. mobile-mcp ile aynı işi görür. |
 | Kullanıcı skill'leri: `accessibility-patterns`, `app-lifecycle`, `deep-linking` | Erişilebilirlik, uygulama yaşam döngüsü, derin bağlantı ilkeleri | everything-claude-code-mobile'dan seçildi (MIT). Örnekler native; React Native/Expo karşılıklarıyla uygulanır. |
+| Kullanıcı skill'i: `frontend-design` | Ayırt edici arayüz tasarımı | Önceden kuruluydu. Anthropic'in frontend-design eklentisiyle aynı içerik, bu yüzden eklenti ayrıca kurulmadı. |
 | skills-manager (masaüstü uygulaması) | Sahibin skill'leri görsel olarak yönetmesi | `%LOCALAPPDATA%\skills-manager`. İmzasız kurulum dosyası, sahip onayladı. |
 
-**Bilinçli olarak kurulmayanlar:** everything-claude-code-mobile'ın geri kalanı. Paket native Kotlin/Swift/KMP için yazılmış; React Native'de yanlış tekniklere yönlendirir. Kancaları proje klasörüne kayıt dosyası yazıyor. Bildirim ve çevrimdışı skill'leri sunucu tabanlı. Güvenlik skill'i kayıtları dışarıdaki bir çökme servisine göndermeyi öneriyor, bu gizlilik kuralımıza aykırı. awesome-claude-skills ise kurulacak bir paket değil, bir liste; içindeki tek ilgili öğe (Expo skill'leri) zaten kurulu.
+**Araç seçerken:** Aynı işi gören birden fazla araç var (kod incelemesi için `code-review`, `pr-review-toolkit` ve superpowers'ın inceleme skill'leri). Projenin kuralları her zaman önce gelir. Mobil işlerde Expo eklentisinin skill'leri, genel React/TypeScript önerilerinden önceliklidir.
+
+**Bilinçli olarak kurulmayanlar:**
+- everything-claude-code-mobile'ın geri kalanı. Native Kotlin/Swift/KMP için yazılmış, React Native'de yanlış tekniklere yönlendirir. Kancaları proje klasörüne kayıt dosyası yazıyor. Bildirim ve çevrimdışı skill'leri sunucu tabanlı. Güvenlik skill'i kayıtları dışarıdaki bir çökme servisine göndermeyi öneriyor, bu gizlilik kuralımıza aykırı.
+- wshobson koleksiyonunun ilgisiz eklentileri (blokzincir, borsa, oyun, Julia vb.).
+- Anthropic `document-skills` ve `claude-api`. Bunlar sahibin hesabında zaten var, kopyaları çift görünürdü.
+- awesome-claude-skills ve awesome-claude-code. Bunlar kurulacak paket değil, bağlantı listesi.
