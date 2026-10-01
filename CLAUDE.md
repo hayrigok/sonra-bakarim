@@ -6,7 +6,7 @@
 Turkey-focused mobile app (Android + iOS) that reads the user's screenshots on-device and turns them into actions. All of these content types are in scope for launch, built on shared Turkish date and TL amount parsing:
 
 - Coupon codes (Trendyol, Hepsiburada, Getir, Yemeksepeti) with expiry reminders
-- Cargo tracking numbers (Yurtiçi, Aras, MNG, PTT)
+- Cargo tracking numbers (Yurtiçi, Aras, DHL eCommerce (formerly MNG), PTT, Trendyol Express, HepsiJET, Sürat and others)
 - MHRS hospital appointments
 - Event and concert posters → calendar
 - Addresses and places → maps
@@ -30,6 +30,7 @@ Competitors exist globally (Google Pixel Screenshots, SnapActions, Captr, Skreen
 - The owner writes in Turkish. Reply in Turkish, and explain decisions in product terms (what the user sees or what it costs), not implementation detail.
 - The goal is a polished launch on both stores at once, preceded by a closed beta (TestFlight + Google Play closed testing). Do not cut corners to ship sooner.
 - `docs/YOL-HARITASI.md` (Turkish, read by the owner) is the project's memory. When a decision is made or a phase finishes, update it in the same session.
+- `docs/YAPILACAKLAR.md` (Turkish, emoji-marked) is the detailed task list and the owner's checklist. Read it before starting work. When a task is done, tick it in the same session (`[x]` plus the date), update the status table at the top, and add newly discovered tasks to the right phase. When the owner makes a pending decision, move it from the list's decisions section into `docs/YOL-HARITASI.md`.
 
 ## Product rules
 
@@ -47,3 +48,4 @@ Competitors exist globally (Google Pixel Screenshots, SnapActions, Captr, Skreen
 ## Environment
 
 - Development machine is Windows with no Mac, Java or Android SDK. Build iOS and Android in the cloud with EAS (`npx eas-cli@latest build`), and test on physical phones with development builds.
+- The owner's own phone is an iPhone, so device testing needs a paid Apple Developer account first. Android testing uses a borrowed phone.
