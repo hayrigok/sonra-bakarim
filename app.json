@@ -28,6 +28,13 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "52d02b65-4849-4bc6-8a46-a228f5801856"
+      }
+    },
+    "owner": "enesgoks-team"
   }
 }
