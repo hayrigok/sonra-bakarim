@@ -11,6 +11,8 @@ Rakipler global olarak var (Google Pixel Screenshots, SnapActions, Captr, Skreen
 
 ## Çalışma Standardı (kalıcı, her görevde hatırlatılmadan uygulanır)
 
+Sahibin tüm projelerinde geçerli kişisel standardı `~/.claude/CLAUDE.md`'de durur ve her oturumda yüklenir. Bu dosya ondan önce gelir; aşağıdakiler Sonra Bakarım'a özgü ayrıntılardır.
+
 - **Kıdemli yazılımcı kalitesi.** Kod, arayüz ve kullanıcı deneyimi kusursuz olacak; mimari bozulmayacak. Her ekran küçük ve büyük iPhone'larda, farklı Android telefonlarda, büyük yazı ayarında ve klavye açıkken düzgün çalışmalı. Yalnızca bir cihazda deneyip bitirme.
 - **Ürün sahibi yönetir, kodu Claude yazar.** Sahip kod yazmaz. Türkçe yazar. Ona Türkçe ve ürün diliyle (kullanıcı ne görür, neye mal olur) anlat, teknik ayrıntıyla değil.
 - **Aceleyle çıkış yok.** Hedef, kapalı betadan (TestFlight + Google Play kapalı testi) sonra iki mağazada aynı gün cilalı bir çıkış.
@@ -55,6 +57,8 @@ Paket kurduktan, kaldırdıktan ya da `app.json`'ı değiştirdikten sonra **ça
 - TypeScript strict; `any` yok. Kod, tanımlayıcılar ve yorumlar İngilizce; arayüz metinleri Türkçe.
 - **Tanıma mantığı `src/core/` altında saf TypeScript'tir.** React Native import etmez, ağa çıkmaz, böylece Windows'ta cihazsız test edilir. Dışa açılan her fonksiyonun yanında `*.test.ts` testi olur.
 - Her tanıyıcı değişikliği gerçekçi Türkçe ekran metinlerinden kurulan testlerle gelir. Mevcut vakalarda doğruluğu düşüren bir tanıyıcı kabul edilmez.
+- **Tanıyıcı eklerken ya da düzeltirken proje skill'i `turkce-taniyici-ekle`'yi (`.claude/skills/`) adım adım izle:** örnek toplama, önce test, deneme metinleri, deneme ekranı, doğrulama kapısı, belgeler, sahibe rapor.
+- Arayüz metinleri için `turkce-arayuz-metni` skill'i (ek uyumu, `tr-TR` büyük/küçük harf, biçimler), kişisel veri içeren özellikler için `kvkk-kontrol-listesi` skill'i kullanılır.
 - Sahibin gerçek ekran görüntülerinden türetilen test metinlerinde kişisel bilgiler (isim, IBAN, telefon, takip numarası, adres) uydurma değerlerle değiştirilir.
 - Kullanıcı içeriği (okunan metin, bulunan IBAN vb.) `console.log`'a yazılmaz. Geliştirici deneme ekranı bunun dışındadır, çünkü metni kullanıcı kendisi yapıştırır ve ekranda kalır.
 - Arayüz: en az 44 pt dokunma hedefi; her ekranın yükleniyor, boş ve hata hali; VoiceOver/TalkBack için Türkçe etiketler; güvenli alan ve klavye düzeni.
@@ -219,6 +223,9 @@ Claude CLI PATH'te değil; VS Code eklentisinin içindeki `claude.exe` ile yöne
 | `android-mcp` | Android telefonu ADB ve erişilebilirlik ağacıyla yönetmek | `uvx --python 3.13` ile çalışır (Python 3.13 uv'nin kendi alanında, sistemdeki 3.12'ye dokunmaz). ADB ve Android 10+ telefon gerekir. mobile-mcp ile aynı işi görür. |
 | Kullanıcı skill'leri: `accessibility-patterns`, `app-lifecycle`, `deep-linking` | Erişilebilirlik, uygulama yaşam döngüsü, derin bağlantı ilkeleri | everything-claude-code-mobile'dan seçildi (MIT). Örnekler native; React Native/Expo karşılıklarıyla uygulanır. |
 | Kullanıcı skill'i: `frontend-design` | Ayırt edici arayüz tasarımı | Önceden kuruluydu. Anthropic'in frontend-design eklentisiyle aynı içerik, bu yüzden eklenti ayrıca kurulmadı. |
+| Kullanıcı skill'leri (Claude'un yazdığı): `turkce-arayuz-metni`, `kvkk-kontrol-listesi`, `sahip-belgeleri` | Doğal Türkçe arayüz metni ve ek uyumu; KVKK/İYS mühendislik kontrol listesi; sahip için yol haritası ve emojili yapılacaklar düzeni | `~/.claude/skills/` altında, sahibin tüm projelerinde geçerli. KVKK skill'i hukuki görüş değildir. |
+| Proje skill'i: `turkce-taniyici-ekle` | Yeni Türkçe tanıyıcı ekleme iş akışı | `.claude/skills/` altında, repoda. |
+| Kişisel standart: `~/.claude/CLAUDE.md` | Sahibin tüm projelerdeki çalışma kuralları | Her oturumda yüklenir; proje CLAUDE.md'si önce gelir. |
 | skills-manager (masaüstü uygulaması) | Sahibin skill'leri görsel olarak yönetmesi | `%LOCALAPPDATA%\skills-manager`. İmzasız kurulum dosyası, sahip onayladı. |
 
 **Araç seçerken:** Aynı işi gören birden fazla araç var (kod incelemesi için `code-review`, `pr-review-toolkit` ve superpowers'ın inceleme skill'leri). Projenin kuralları her zaman önce gelir. Mobil işlerde Expo eklentisinin skill'leri, genel React/TypeScript önerilerinden önceliklidir.
