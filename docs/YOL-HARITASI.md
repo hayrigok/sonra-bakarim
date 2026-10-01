@@ -53,7 +53,7 @@ Kargonun durumunu otomatik takip etmek takip numarasını kargo firmasına, adre
 
 Hepsi çıkışta olacak ama tanıma motoru şu sırayla yazılacak; en çok kullanılan ve rakiplerden en çok ayrıştığımız türler önce:
 
-1. Ortak parçalar: Türkçe tarih ve saat, TL tutar
+1. [x] Ortak parçalar: Türkçe tarih ve saat, TL tutar (2026-10-02)
 2. Kupon, kargo, MHRS, IBAN
 3. Fatura, iade süresi, abonelik
 4. Uçak/otobüs bileti, ÖSYM, etkinlik afişi, adres
@@ -71,6 +71,14 @@ Hepsi çıkışta olacak ama tanıma motoru şu sırayla yazılacak; en çok kul
 7. [ ] Kapalı beta (20–50 kişi), geri bildirimlere göre düzeltmeler
 8. [ ] Herkese açık çıkış
 
+### Tarih ve tutar okuyucuları neleri anlıyor (2026-10-02)
+
+- **Tarihler:** "31.10.2026 23:59", "31/12/26", "14 Ekim 2026 Çarşamba 10:40", "17 EKİM CUMARTESİ 20.30", "28 Eyl 2026", "20 Ekim'e kadar", "20 ekimde", "1-31 Ekim 2026", "15 Aralık - 5 Ocak 2027", "yarın 14:00", "bugün", "dün", "öbür gün", "bu akşam 21.00", "Cumartesi 21.00". Türkçe harfleri kaybolmuş OCR metnini de okuyor ("15 SUBAT 2027", "Ekım").
+- **Yılı yazılmamış tarihler:** Ekran görüntüsünün çekildiği güne en yakın yıl seçiliyor. Gün adı yazılıysa ona uyan yıl seçiliyor ("5 Ocak Salı" → 2027).
+- **Tutarlar:** "1.250,00 TL", "₺245,50", "89,90₺", "TL 75,50", "250 TL'ye", "100 liralık", "50 bin TL", "1,5 milyon TL"; yabancı sitelerin "1,250.00 TL" yazımı da.
+- **Karıştırmadıkları:** telefon ve takip numaraları, IBAN, sürüm numaraları, "%20 indirim", fiyatı saat ya da yıl sanmak ("15 Ekim 12.50 TL"), alt satırdaki saati üst satırdaki tarihe bağlamak.
+- 62 test. Testler `npm test` ile çalışıyor.
+
 ## Sıradaki adım
 
-Türkçe tanıma motoruna yapım sırasının 1. adımından başlamak. Ürün sahibi test seti için gerçek ekran görüntüleri topluyor ve bunları `ekran-goruntuleri/` klasörüne koyacak: kuponlar, kargo bildirimleri, MHRS randevuları, IBAN mesajları, faturalar, biletler, sipariş ve abonelik ekranları, sınav belgeleri, etkinlik afişleri, adresler, tarifler. Kişisel bilgiler karalanabilir.
+Yapım sırasının 2. adımı: kupon, kargo, MHRS ve IBAN tanıyıcıları. Ürün sahibi test seti için gerçek ekran görüntüleri topluyor ve bunları `ekran-goruntuleri/` klasörüne koyacak: kuponlar, kargo bildirimleri, MHRS randevuları, IBAN mesajları, faturalar, biletler, sipariş ve abonelik ekranları, sınav belgeleri, etkinlik afişleri, adresler, tarifler. Kişisel bilgiler karalanabilir.
