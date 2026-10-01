@@ -217,6 +217,8 @@
 - [ ] ⚠️ npm paket çakışmasını çöz: metin okuyucu kütüphanesi kurulamadan önce şart (bkz. "Bakım ve teknik borç")
 - [ ] Bulutta derleme ayarları: geliştirme, test ve mağaza profilleri
 - [ ] 👤 Ödünç bir Android telefon bul (Android 10 ve üstü; mümkünse Samsung Galaxy A ya da Xiaomi Redmi)
+- [ ] Android'in ADB aracını kur ve telefonda USB hata ayıklamayı aç. Böylece telefonu bilgisayardan yönetebilirim: ekran görüntüsü alma, dokunma, uygulama kurma (mobile-mcp ve android-mcp kurulu, telefonu bekliyor).
+- [ ] 👤 Expo'nun Claude bağlantısına bir kerelik giriş: Claude'da `/mcp` yaz, "expo"yu seç, tarayıcıda giriş yap
 - [ ] İlk deneme sürümü ödünç Android'de. Kurulum dosyası bağlantıyla yüklenir, hesap ve ücret gerekmez.
 - [ ] ⚠️💰 Bulutta derlemenin ücretsiz planında aylık sınır ve sıra bekleme var. Yetmezse senin onayınla ücretli plana geçeriz.
 
@@ -427,6 +429,7 @@ Ayrıntılar ve teknik açıklamalar CLAUDE.md'nin "Bilinen Sorunlar ve Teknik B
 
 - [x] CLAUDE.md'yi sevgilify'daki çalışma standardıyla yeniden yazma: doğrulama kapısı, Windows tuzakları, motorun nasıl çalıştığı, test tablosu, bilinen sorunlar (2 Ekim 2026)
 - [x] Telefona internet üzerinden bağlanma (tünel): Windows'un "Ortak ağ" engelini aşıyor (2 Ekim 2026)
+- [x] Geliştirme araçları kalıcı olarak kuruldu: resmi Expo eklentisi (24 skill), mobile-mcp, android-mcp, erişilebilirlik / yaşam döngüsü / derin bağlantı skill'leri, skills-manager uygulaması (2 Ekim 2026)
 - [ ] ⚠️ npm paket çakışması: yeni paket eklerken npm hata veriyor. Uygulama sağlıklı (Expo kontrolü 21/21 temiz) ama metin okuyucu kurulmadan önce çözülmeli.
 - [ ] Tünel adresini bulup QR sayfasını tek komutla açan küçük bir yardımcı
 - [ ] Gerçek ana ekran gelince deneme ekranını geliştirici menüsüne taşıma, kullanıcıya giden sürümden çıkarma

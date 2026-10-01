@@ -193,3 +193,17 @@ Yeni kod yazarken bunları büyütme. Durumlar: 🔴 açık ve önemli, 🟡 aç
 - **Bilgisayar:** Windows 11, Node 24, npm 11. Mac, Java ve Android SDK yok. iOS ve Android derlemeleri bulutta (EAS).
 - **Expo:** CLI hesabı `1enesgok`. Proje sahibi `enesgoks-team`, EAS proje kimliği `52d02b65-4849-4bc6-8a46-a228f5801856` (`app.json`'da).
 - **Telefonlar:** Sahibin telefonu iPhone. Apple Developer ve Google Play hesapları sahibin kararıyla sonraya bırakıldı. O zamana kadar iPhone'da yalnızca Expo Go ile saf JavaScript özellikleri (deneme ekranı gibi) denenir. ML Kit gibi native özellikler ödünç bir Android telefona kurulan deneme sürümüyle (EAS development build, ücretsiz) denenir.
+
+### Kurulu geliştirme araçları (kullanıcı düzeyinde, tüm projelerde, 2026-10-02)
+
+Claude CLI PATH'te değil; VS Code eklentisinin içindeki `claude.exe` ile yönetilir (`~/.vscode/extensions/anthropic.claude-code-*/resources/native-binary/claude.exe`). MCP ayarları `~/.claude.json`'da durur.
+
+| Araç | Ne işe yarar | Not |
+|---|---|---|
+| Expo resmi eklentisi (`expo@claude-plugins-official`) | 24 Expo skill'i (Router, EAS, mağazalar, SDK yükseltme, tasarım sistemi) + Expo MCP | Kullanım istatistiği isteğe bağlı ve kapalı. Expo MCP bir kerelik giriş ister (Claude'da `/mcp`). |
+| `mobile-mcp` | Telefonu ya da emülatörü yönetmek: ekran görüntüsü, dokunma, uygulama kurma, loglar | `MOBILEMCP_DISABLE_TELEMETRY=1` ile kullanım verisi kapalı. Windows'ta `cmd /c npx` ile başlar. Android için ADB ve USB hata ayıklama gerekir. Windows'tan iPhone yönetimi doğrulanmadı. |
+| `android-mcp` | Android telefonu ADB ve erişilebilirlik ağacıyla yönetmek | `uvx --python 3.13` ile çalışır (Python 3.13 uv'nin kendi alanında, sistemdeki 3.12'ye dokunmaz). ADB ve Android 10+ telefon gerekir. mobile-mcp ile aynı işi görür. |
+| Kullanıcı skill'leri: `accessibility-patterns`, `app-lifecycle`, `deep-linking` | Erişilebilirlik, uygulama yaşam döngüsü, derin bağlantı ilkeleri | everything-claude-code-mobile'dan seçildi (MIT). Örnekler native; React Native/Expo karşılıklarıyla uygulanır. |
+| skills-manager (masaüstü uygulaması) | Sahibin skill'leri görsel olarak yönetmesi | `%LOCALAPPDATA%\skills-manager`. İmzasız kurulum dosyası, sahip onayladı. |
+
+**Bilinçli olarak kurulmayanlar:** everything-claude-code-mobile'ın geri kalanı. Paket native Kotlin/Swift/KMP için yazılmış; React Native'de yanlış tekniklere yönlendirir. Kancaları proje klasörüne kayıt dosyası yazıyor. Bildirim ve çevrimdışı skill'leri sunucu tabanlı. Güvenlik skill'i kayıtları dışarıdaki bir çökme servisine göndermeyi öneriyor, bu gizlilik kuralımıza aykırı. awesome-claude-skills ise kurulacak bir paket değil, bir liste; içindeki tek ilgili öğe (Expo skill'leri) zaten kurulu.
