@@ -2,7 +2,7 @@
 
 > 📌 Projenin ayrıntılı iş listesi. Bir iş bitince kutusunu işaretleyip tarihini yazarım. Alınan kararlar ve gerekçeleri [YOL-HARITASI.md](YOL-HARITASI.md)'de.
 >
-> 🗓️ Son güncelleme: 2 Ekim 2026
+> 🗓️ Son güncelleme: 3 Ekim 2026
 
 ## 🔤 İşaretler
 
@@ -22,9 +22,9 @@
 | Aşama | Durum |
 |---|---|
 | 1️⃣ Proje iskeleti | ✅ Bitti |
-| 2️⃣ Türkçe tanıma motoru | 🟡 Sürüyor: 6 adımdan 1'i bitti |
-| 3️⃣ Telefonda okuma ve galeri tarama | ⏳ Bekliyor |
-| 4️⃣ Arayüz ve tasarım | ⏳ Bekliyor |
+| 2️⃣ Türkçe tanıma motoru + otomatik tarama zinciri | 🟡 Sürüyor: 7 adımdan 1'i bitti. Sıradaki: uçtan uca zincir |
+| 3️⃣ Telefonda okuma ve galeri tarama | 🟡 İlk parçası 2. aşamaya alındı |
+| 4️⃣ Arayüz ve tasarım | 🟡 Görsel yön seçildi (Duolingo tarzı), ilk ekranlar 2. aşamaya alındı |
 | 5️⃣ Paylaş menüsü ve otomatik yakalama | ⏳ Bekliyor |
 | 6️⃣ Yasal ve mağaza hazırlığı | ⏳ Bekliyor |
 | 7️⃣ Kapalı beta | ⏳ Bekliyor |
@@ -32,8 +32,10 @@
 
 ## 🙋 Şu an senden beklenenler
 
-1. 🧪 **Deneme ekranında kendi mesajlarını dene.** Telefonundaki gerçek SMS'leri, WhatsApp mesajlarını ve e-postaları kopyalayıp yapıştır. Yanlış ya da eksik tanınanı bana yaz; kişisel bilgileri silebilirsin. Yapıştırdığın metin hiçbir yere gitmiyor.
-2. 📸 **Ekran görüntüsü topla.** Kendi iPhone'undan ve Android kullanan birinin telefonundan topla, çünkü aynı mesaj iki telefonda farklı görünüyor. Her türden en az 20, toplamda 300'den fazla olsun. `ekran-goruntuleri/` klasörüne koy, bu klasör GitHub'a gitmez. İsim, TC kimlik no, telefon numarası ve başkalarının IBAN'ı gibi kişisel bilgileri karala.
+1. 📸 **Ekran görüntüsü biriktir.** iPhone galerinde dursun yeter. Tarama zinciri hazır olunca uygulama onları kendisi tarayacak. Kuponlar, kargo, MHRS, IBAN, fatura, abonelik ve yeni türler: e-Nabız ilaç ekranları, doğum günü davetiyeleri ve bildirimleri, kullanıcı adı ve parola içeren ekranlar. Her türden en az 20 olsun. Bir kısmını `ekran-goruntuleri/` klasörüne de koy, onları otomatik teste çeviririm. Bu klasör GitHub'a gitmez. Klasöre koyduklarında isim, TC kimlik no, telefon numarası ve başkalarının IBAN'ı gibi bilgileri karala. ⚠️ Parola ekranlarında gerçek parolanı karala ya da bir deneme hesabı kullan.
+2. 📱 **Ödünç bir Android telefon bul.** Asıl okuyucuyu (ML Kit) onda deneyeceğiz. Android 10 ya da üstü olsun; mümkünse Samsung Galaxy A ya da Xiaomi Redmi.
+
+ℹ️ Mesaj yapıştırma ekranını denemen artık gerekmiyor (3 Ekim 2026). O ekran yalnızca benim test aracım olarak kalıyor.
 
 🍎▶️ **Apple Developer ve Google Play hesapları sonraya kaldı** (senin kararın, 2 Ekim 2026). Apple hesabı yalnızca mağaza için değil: iPhone'da ekran görüntüsünü gerçekten okuyan sürümü denemek ve TestFlight betası için de gerekiyor. O zamana kadar gerçek okuma testlerini ödünç bir Android telefonla ücretsiz yaparız.
 
@@ -43,8 +45,8 @@
 |---|---|---|
 | 🧠 Tanıma motoru | Bilgisayarda otomatik testler, her değişiklikte | Gerekmiyor |
 | 📸 Gerçek içerik | `ekran-goruntuleri/` klasörüne attığın görüntüleri ben okuyup "uygulama burada şunu bulurdu" raporu çıkarırım, hataları düzeltirim. Görüntüler kalıcı teste dönüşür. | Gerekmiyor |
-| 📱 iPhone'da deneme | Expo Go'da "Tanıma denemesi" ekranı: bir mesajı kopyalayıp yapıştırırsın, uygulamanın bulduklarını anında görürsün | Ücretsiz Expo hesabı |
-| 🔍 Ekran görüntüsünden okuma ve galeri taraması | Ödünç Android telefona kurulan deneme sürümü (3. aşama) | Ücretsiz Expo hesabı |
+| 📱 iPhone'da otomatik tarama | Expo Go'da geçici okuyucuyla: uygulama galerini kendisi tarar, bulduklarını listeler. Geçici okuyucu asıl okuyucudan yavaş ve daha az isabetli olabilir. | Ücretsiz Expo hesabı |
+| 🔍 Asıl okuyucuyla (ML Kit) tarama | Ödünç Android telefona kurulan deneme sürümü | Ücretsiz Expo hesabı |
 | 🍎 iPhone'da okuma, Paylaş menüsü, TestFlight | iPhone'una kurulan deneme sürümü | Apple Developer (yıllık 99$) |
 
 ## 🧭 Bekleyen kararlar
@@ -116,9 +118,38 @@
 - [ ] **Doğruluk ölçer:** Her türün yüzde kaç doğru tanındığını raporlar ve her değişiklikte çalışır. Bir tanıyıcıyı kötüleştiren değişiklik kabul edilmez.
 - [ ] **GitHub'da otomatik test:** Testler her yüklemede kendiliğinden çalışır. Özel depoda ayda 2000 dakika ücretsiz.
 
-### 🔹 Adım 2: Kupon, kargo, MHRS, IBAN
+### 🔹 Adım 2: Uçtan uca zincir (öne alındı, 3 Ekim 2026)
 
-#### 🎟️ Kupon
+🎯 **Bitti sayılması için:** Expo Go'da iPhone'unda uygulamayı açıyorsun, galeri izni veriyorsun, uygulama ekran görüntülerini kendisi tarıyor ve bulduğu kuponları Duolingo tarzı bir listede gösteriyor. Hiçbir şey elle girilmiyor.
+
+#### 🧱 Hazırlık
+- [ ] ⚠️ npm paket çakışmasını çöz. Galeri, web sayfası ve yazı tipi paketleri bu çözülmeden kurulamıyor.
+- [ ] Deneme: geçici okuyucu (Tesseract) Expo Go'da iPhone'da çalışıyor mu? Türkçe bir ekran görüntüsünü ne kadar doğru ve kaç saniyede okuyor? Çalışmazsa sana dönerim (Apple hesabı ya da yan yükleme).
+- [ ] 🔒 Okuma modeli mümkünse uygulamanın içinde gelsin. Gelemiyorsa ilk açılışta bir kez iner; ekran görüntüleri ve okunan metin hiçbir yere gitmez.
+- [ ] Okuyucu değiştirilebilir yapıda olacak: Expo Go'da geçici okuyucu, deneme sürümünde ML Kit. Tarama, tanıma ve ekranlar aynı kalır.
+
+#### 🎨 Duolingo tarzı tema
+- [x] 🧭 Görsel yön: Duolingo tarzı. Canlı renkler, basılınca çöken kalın düğmeler, yuvarlak yazı tipi, sevimli animasyonlar (3 Ekim 2026)
+- [ ] Renk paleti, açık ve koyu mod. ⚠️ Duolingo'nun birebir renkleri, baykuşu ve yazı tipi kopyalanmaz, yalnızca tarzı örnek alınır.
+- [ ] ⚠️ Yuvarlak, ücretsiz ve Türkçe harfleri (ğ, ş, ı, İ) düzgün çizen bir yazı tipi
+- [ ] Ortak bileşenler: kalın düğme, kart, ilerleme çubuğu, rozet
+- [ ] Animasyonlar: düğmeye basınca çökme, kart gelirken zıplama, bir şey bulununca kutlama, dokunma titreşimi. "Hareketi azalt" açıksa sade geçişler.
+
+#### 📱 İlk ekranlar (gerçek uygulama ekranları)
+- [ ] Karşılama: tek cümlelik değer önerisi ve gizlilik sözü
+- [ ] Galeri izni: önce neden istediğimizi anlatan ekran, sonra telefonun izin penceresi. İzin verilmezse ne olacağı.
+- [ ] Tarama ekranı: ilerleme çubuğu ve canlı sayaç ("312 ekran görüntüsünden 40'ı tarandı, 3 kupon bulundu")
+- [ ] Sonuç listesi: kupon kartları, kodu tek dokunuşla kopyalama, son kullanma tarihi
+- [ ] Her ekranın yükleniyor, boş ve hata hali. Büyük yazı ayarı, küçük ve büyük ekran, VoiceOver için Türkçe etiketler.
+
+#### ⚙️ Tarama
+- [ ] Yalnızca ekran görüntülerini listeleme (iPhone'un kendi "ekran görüntüsü" etiketiyle)
+- [ ] En yeniden eskiye tarama: ilk sonuçlar ilk saniyelerde gelsin
+- [ ] Bulunanları telefonda saklama: uygulama kapanınca kaybolmasın, açılınca yalnızca yeni ekran görüntüleri taransın
+- [ ] Bulunanlar kendiliğinden kaydedilir, emin olunmayanlar "Emin değilim" kutusuna gider (karar 3 Ekim 2026)
+- [ ] 👤 Expo Go'da kendi galerinde dene: ne buldu, neyi kaçırdı, ne kadar sürdü
+
+#### 🎟️ Kupon (zincirdeki ilk tür)
 - [ ] Kod kalıpları: "Kupon Kodu:", "İndirim Kodu", "Promosyon Kodu", "...koduyla", "kodunu kullan"
 - [ ] İndirim: "%20", "100 TL indirim", "1 alana 1 bedava"
 - [ ] Koşullar: "Min. sepet tutarı 300 TL", "ilk siparişe özel", "yeni üyelere", "Getir Yemek'te geçerli"
@@ -126,6 +157,8 @@
 - [ ] Markalar: Trendyol, Hepsiburada, Getir, Yemeksepeti, Amazon, n11, Çiçeksepeti, Migros ve gerçek örneklerden çıkan diğerleri
 - [ ] ⚠️ Kupon olmayan kodları ayırma: SMS doğrulama kodları, sipariş numaraları, PNR'ler, Wi-Fi şifreleri
 - [ ] 🔔 Hatırlatma: son günden 1 gün önce ve son gün sabahı
+
+### 🔹 Adım 3: Kargo, MHRS, IBAN, parola
 
 #### 📦 Kargo
 - [ ] Firmalar: Yurtiçi, Aras, DHL eCommerce (eski adı MNG, Mayıs 2025'te değişti), PTT Kargo, Sürat, Trendyol Express, HepsiJET, Kolay Gelsin, Sendeo, UPS
@@ -151,7 +184,16 @@
 - [ ] Alıcı adı ve açıklama ("kira", "aidat") yakındaki satırlardan
 - [ ] Tek dokunuşla kopyalama
 
-### 🔹 Adım 3: Fatura, iade süresi, abonelik
+#### 🔑 Parola ve kullanıcı adı (yeni, 3 Ekim 2026)
+- [ ] Kalıplar: "Kullanıcı adı", "E-posta", "Şifre", "Parola", "Şifreniz:", "Geçici şifre" ve hangi site ya da uygulamaya ait olduğu (ekrandaki ad)
+- [ ] ⚠️ SMS ile gelen tek kullanımlık doğrulama kodlarını parola sanmama, kaydetmeme
+- [ ] Tek dokunuşla onay: kullanıcı "Doğru, kaydet" demeden kaydedilmez (karar 3 Ekim 2026)
+- [ ] 🔒 Telefonun şifreli kasasında saklama (iPhone Anahtar Zinciri, Android Keystore). Görmek için Face ID ya da parmak izi.
+- [ ] 🔒 Parola listede, aramada ve bildirimlerde gizli görünür (••••)
+- [ ] 🔒 Kaydettikten sonra: "Bu parola galeride şifresiz duruyor. Ekran görüntüsünü silelim mi?"
+- [ ] 🔒 Parola kasası bitince güvenlik incelemesi (`/security-review`)
+
+### 🔹 Adım 4: Fatura, abonelik, ilaç, doğum günü, iade süresi
 
 #### 🧾 Fatura
 - [ ] Kurumlar: elektrik (Enerjisa, CK Enerji...), doğalgaz (İGDAŞ, Başkentgaz...), su (İSKİ, ASKİ, İZSU...), GSM (Turkcell, Vodafone, Türk Telekom), internet (Türk Telekom, Superonline, TurkNet...)
@@ -170,7 +212,23 @@
 - [ ] 🔔 3 gün önce "İptal edecek miydin?" hatırlatması ve App Store / Google Play abonelik sayfasına kısayol
 - [ ] 💡 Yıllık toplam: "Aboneliklerine yılda 4.320 TL ödüyorsun"
 
-### 🔹 Adım 4: Bilet, ÖSYM, etkinlik, adres
+#### 💊 İlaç (yeni, 3 Ekim 2026)
+- [ ] Kaynaklar: e-Nabız "İlaçlarım" ve "Reçetelerim" ekranları, e-Reçete SMS'i, doktor ve eczane notları (gerçek örneklerden doğrulanacak)
+- [ ] Bilgiler: ilaç adı, kullanım ("2x1", "günde 2 kez", "8 saatte bir", "sabah-akşam", "tok karnına", "aç karnına"), süre ("7 gün")
+- [ ] Tek dokunuşla onay: kullanıcı "Doğru, kur" demeden hatırlatma kurulmaz, saatleri düzeltebilir (karar 3 Ekim 2026)
+- [ ] 🔔 Her doz saatinde hatırlatma, "İçtim" düğmesi, süre bitince durur
+- [ ] ⚠️ iPhone'un 64 bekleyen bildirim sınırı: tekrar eden ilaç hatırlatmaları sırayı doldurmasın
+- [ ] 🔒 Sağlık bilgisi KVKK'da özel nitelikli veri. Kilit ekranında ilaç adı varsayılan olarak gizli ("İlaç saatin geldi").
+- [ ] ⚠️ Uygulama tıbbi tavsiye vermez: doz ekran görüntüsünden okunur, kullanıcı onaylar. Uygulamada ve mağaza açıklamasında bu yazacak.
+
+#### 🎂 Doğum günü (yeni, 3 Ekim 2026)
+- [ ] Kaynaklar: davetiyeler ("doğum günü partisi", "davetlisiniz"), Instagram ve Facebook doğum günü bildirimleri, mesajlar ("yarın Ayşe'nin doğum günü")
+- [ ] Kişinin adı ve tarih. Yıl yazıyorsa yaşı: "30 yaşına giriyor".
+- [ ] Davetiyedeki parti tarihi ayrıca etkinlik olarak kaydedilir
+- [ ] 🔔 Her yıl bir gün önce ve günün sabahı hatırlatma
+- [ ] 🔒 Kimlik kartı ekran görüntüsünden doğum tarihi alınmaz (TC kimlik bilgisi)
+
+### 🔹 Adım 5: Bilet, ÖSYM, etkinlik, adres
 
 #### ✈️ Uçak, otobüs, tren
 - [ ] Uçak: THY, Pegasus, AJet, SunExpress. PNR, uçuş numarası, havalimanı kodları (IST, SAW, ESB, ADB, AYT...), kapı, koltuk.
@@ -192,7 +250,7 @@
 - [ ] 81 il ve ilçe listesi, uygulamanın içinde ve internetsiz
 - [ ] 🔒 Haritada açma: Apple Haritalar, Google Haritalar ya da Yandex Haritalar (kullanıcı seçer)
 
-### 🔹 Adım 5: Tarif, kitap, film ve küçükler
+### 🔹 Adım 6: Tarif, kitap, film ve küçükler
 - [ ] 🍲 Tarif: "Malzemeler", "Yapılışı", "Hazırlanışı", "su bardağı", "yemek kaşığı", "fırında ... derece"
 - [ ] 📚 Kitap: yazar, yayınevi, ISBN. Kitapyurdu, D&R, 1000Kitap ve Goodreads ekranları.
 - [ ] 🎬 Film ve dizi: IMDb, Letterboxd ve Netflix ekranları. "sezon", "bölüm", "yönetmen".
@@ -203,12 +261,14 @@
 - [ ] 🛍️ Ürün: Trendyol, Hepsiburada ve Amazon ürün sayfaları → adı ve fiyatıyla istek listesi
 - [ ] 💡 QR kod ve barkod okuma: Wi-Fi QR kodları, biletlerdeki kare kodlar ("kapıda göster")
 
-### 🔹 Adım 6: Galeri temizliği için işaretleme (arayüzle birlikte)
+### 🔹 Adım 7: Galeri temizliği için işaretleme (arayüzle birlikte)
 - [ ] "İşi bitti" sayılanlar: süresi geçmiş kupon, teslim edilmiş kargo, geçmiş randevu ve etkinlik, doğrulama kodu ekranları, birebir aynı ekran görüntüleri
 
 ## 3️⃣ 📷 Telefonda okuma ve galeri tarama
 
 🎯 **Bitti sayılması için:** Galerinin tamamı telefonda taranıyor ve bulunanlar telefonda kayıtlı. Önce ödünç Android'de, Apple hesabı açılınca senin iPhone'unda.
+
+⚡ Taramanın ilk sürümü (Expo Go'da geçici okuyucuyla) 2. aşamanın "Uçtan uca zincir" adımına alındı (3 Ekim 2026). Bu aşama asıl okuyucuyu (ML Kit) ve taramanın eksiksiz halini kapsar.
 
 ### 🔑 Hazırlık
 - [x] 👤 🔷 Expo hesabı (2 Ekim 2026)
@@ -270,7 +330,7 @@
 
 ### 🖌️ Görsel kimlik
 - [ ] 🧭 İsim kontrolü (tasarımdan önce)
-- [ ] 2-3 farklı görsel yön önerisi (renk, yazı tipi, hava) → 🧭 sen seçersin
+- [x] 🧭 Görsel yön: Duolingo tarzı, senin seçimin. Tema ve ilk ekranlar 2. aşamadaki zincirle birlikte yapılıyor (3 Ekim 2026)
 - [ ] Logo ve uygulama ikonu: iPhone'un açık, koyu ve renkli ikon çeşitleri, Android'in uyarlanabilir ve tema ikonları
 - [ ] ⚠️ Yazı tipi: Türkçe harfleri (ğ, ş, ı, İ) düzgün çizen bir yazı tipi. Birçok yazı tipinde "İ" ve "ş" bozuk görünüyor.
 - [ ] Renk paleti, açık ve koyu mod
@@ -434,6 +494,7 @@ Ayrıntılar ve teknik açıklamalar CLAUDE.md'nin "Bilinen Sorunlar ve Teknik B
 - [x] İkinci araç paketi kalıcı olarak kuruldu: superpowers, context7, playwright, Claude Code'un geliştirme eklentileri (kod inceleme, PR inceleme, özellik geliştirme, güvenlik, commit), wshobson koleksiyonundan 10 uzman eklenti, Anthropic örnek skill'leri (2 Ekim 2026)
 - [x] Skill listesine ayrılan yer iki katına çıkarıldı. Kurulu 138 skill'in hepsi artık açıklamasıyla görünüyor, böylece Claude doğru skill'i kendiliğinden seçebiliyor. Bedeli mesaj başına yaklaşık 2-3 bin token (2 Ekim 2026)
 - [x] Skill haritası: kurulu 98 skill'den hangisinin bu projede hangi işte kullanılacağı, hangilerinin kullanılmayacağı (web, sunucu ya da veriyi telefondan çıkaranlar) proje skill'i olarak yazıldı (2 Ekim 2026)
+- [x] Bu projede yalnızca gereken eklenti ve skill'ler açık. 7 eklenti ve 4 skill kapatıldı, her oturumda yaklaşık 3.300 token tasarruf. Hangi işte hangisinin kullanıldığı `skill-haritasi` proje skill'inde (3 Ekim 2026)
 - [ ] ⚠️ npm paket çakışması: yeni paket eklerken npm hata veriyor. Uygulama sağlıklı (Expo kontrolü 21/21 temiz) ama metin okuyucu kurulmadan önce çözülmeli.
 - [ ] Tünel adresini bulup QR sayfasını tek komutla açan küçük bir yardımcı
 - [ ] Gerçek ana ekran gelince deneme ekranını geliştirici menüsüne taşıma, kullanıcıya giden sürümden çıkarma
