@@ -198,7 +198,9 @@ Yeni kod yazarken bunları büyütme. Durumlar: 🔴 açık ve önemli, 🟡 aç
 - **Expo:** CLI hesabı `1enesgok`. Proje sahibi `enesgoks-team`, EAS proje kimliği `52d02b65-4849-4bc6-8a46-a228f5801856` (`app.json`'da).
 - **Telefonlar:** Sahibin telefonu iPhone. Apple Developer ve Google Play hesapları sahibin kararıyla sonraya bırakıldı. O zamana kadar iPhone'da yalnızca Expo Go ile saf JavaScript özellikleri (deneme ekranı gibi) denenir. ML Kit gibi native özellikler ödünç bir Android telefona kurulan deneme sürümüyle (EAS development build, ücretsiz) denenir.
 
-### Kurulu geliştirme araçları (kullanıcı düzeyinde, tüm projelerde, 2026-10-02)
+### Kurulu geliştirme araçları (kullanıcı düzeyinde kurulu, 2026-10-02)
+
+> **2026-10-02 güncellemesi:** Eklentiler artık kullanıcı düzeyinde kapalı, her projede sahibin onayıyla açılıyor (kural: `~/.claude/CLAUDE.md` → "Eklenti ve skill seçimi"). Bu projede açık olanlar `.claude/settings.local.json`'da: çekirdek (superpowers, context-mode, context7, commit-commands, code-review, security-guidance) + expo, frontend-mobile-development, ui-design, accessibility-compliance, frontend-mobile-security, javascript-typescript, unit-testing. Kapalı olanlar: pr-review-toolkit, feature-dev, security-scanning, backend-api-security, database-design, seo-technical-optimization, example-skills, playwright. Gerekirse sahibe sorularak açılır. Aşağıdaki tablo kurulu olanların tamamını anlatır.
 
 Claude CLI PATH'te değil; VS Code eklentisinin içindeki `claude.exe` ile yönetilir (`~/.vscode/extensions/anthropic.claude-code-*/resources/native-binary/claude.exe`; `plugin install`, `plugin details`, `mcp list`). MCP ayarları `~/.claude.json`'da, eklenti koleksiyonları `~/.claude/settings.json`'da durur. Her oturuma eklentilerden gelen sabit yük yaklaşık 13.700 token.
 
