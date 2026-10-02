@@ -3,9 +3,64 @@
 
 # Sonra Bakarım: Ekran Görüntülerini İşe Yarar Hale Getiren Uygulama
 
-Türkiye'ye odaklı mobil uygulama (Android + iOS). Kullanıcının ekran görüntülerini **telefonun içinde** okur ve işe yarar şeylere çevirir: kuponlar, kargo numaraları, MHRS randevuları, IBAN'lar, faturalar, biletler ve daha fazlası. Çıkışta olacak içerik türlerinin tam listesi ve alınan kararlar `docs/YOL-HARITASI.md`'de, ayrıntılı iş listesi `docs/YAPILACAKLAR.md`'de.
+Türkiye'ye odaklı mobil uygulama (Android + iOS). Kullanıcının ekran görüntülerini **telefonun içinde** okur ve işe yarar şeylere çevirir: kuponlar, kargo numaraları, MHRS randevuları, IBAN'lar, faturalar, biletler ve daha fazlası. Çıkışta olacak içerik türlerinin tam listesi ve alınan kararlar `docs/YOL-HARITASI.md`'de; yapılacak işler, yapılacağı sırayla ve numaralı olarak `docs/YAPILACAKLAR.md`'de (aşağıdaki "Çalışma Sırası").
 
 Rakipler global olarak var (Google Pixel Screenshots, SnapActions, Captr, Skreenly, Sorti). **Farkımız Türk içeriğini herkesten iyi anlamak.** Neyi yapacağına ya da neyi parlatacağına karar verirken Türkçe tanımayı daha doğru yapanı seç.
+
+---
+
+## Çalışma Sırası: Sıradaki İş (sahibin isteği, 2026-10-03)
+
+Bütün işler `docs/YAPILACAKLAR.md`'de **yapılacağı sırayla, tek bir numaralı listede** duruyor: #1'den #152'ye, 13 bölüm. Her maddede ne yapılacağı, kimin yapacağı (👤 sahip, 🧭 sahibin kararı, işaretsizse Claude) ve ne zaman bitmiş sayılacağı yazar.
+
+- **Her oturum listedeki ilk açık maddeden devam eder.** Sahip başka bir şey istemedikçe sıra atlanmaz.
+- Bir madde sahibin işini (👤) ya da kararını (🧭) bekliyorsa sahibe söylenir ve ondan bağımsız bir sonraki maddeye geçilir. Sıranın kalıcı değişikliği sahibin onayıyla yapılır ve `docs/YOL-HARITASI.md`'ye tarihli karar olarak yazılır.
+- Bir madde bitince **aynı oturumda** kutusu `[x]` + tarih ile işaretlenir; en üstteki "▶️ Sıradaki iş" satırı ve "Genel durum" tablosu güncellenir.
+- Yeni iş çıkarsa doğru yere eklenir ve sonraki numaralar kaydırılır. Numaralara yapılan göndermeler de düzeltilir (bekleyen kararlardaki "#45" gibi). Sahibe söylenir.
+- Bir bölüm bitince aşağıdaki "Şu anki bölüm" kısmı bir sonraki bölümün maddeleriyle değiştirilir.
+
+**Bölümler, sırayla:**
+1. 🚀 Otomatik tarama zinciri, iPhone'da Expo Go ile (#1–#25) ← şu an buradayız
+2. 🔔 Hatırlatmalar ve kalite ölçümü (#26–#32)
+3. 📦 Kargo, MHRS, IBAN, parola (#33–#43)
+4. 📱 Asıl okuyucu: ödünç Android'de ML Kit (#44–#56); telefon erken bulunursa öne alınır
+5. 🧾 Fatura, abonelik, ilaç, doğum günü, iade süresi (#57–#63)
+6. ✈️ Bilet, ÖSYM, etkinlik, adres (#64–#70)
+7. 🍲 Tarif, kitap, film ve küçükler (#71–#78)
+8. 🎨 Görsel kimlik ve arayüzün tamamı (#79–#95)
+9. 🍎 Apple hesabı ve iPhone'da gerçek sürüm (#96–#103)
+10. 📤 Paylaş menüsü ve Android'de otomatik yakalama (#104–#112)
+11. ⚖️ Yasal ve mağaza hazırlığı (#113–#131)
+12. 🧪 Kapalı beta (#132–#141)
+13. 🚀 Herkese açık çıkış (#142–#152)
+
+**Şu anki bölüm: 1. Otomatik tarama zinciri.** Hedef: Sahibin iPhone'unda Expo Go'da uygulama galeri izni alıyor, ekran görüntülerini kendisi tarıyor ve bulduğu kuponları Duolingo tarzı bir listede gösteriyor. Her maddenin ayrıntısı ve "bitti" ölçütü YAPILACAKLAR'da.
+
+1. npm paket çakışmasını çöz (Bilinen Sorunlar §1)
+2. Geçici okuyucu (Tesseract, gizli web sayfasında) denemesi için geliştirici ekranı
+3. 👤 Sahip iPhone'da 5 ekran görüntüsüyle dener; okuyamazsa 🧭 Apple hesabı ya da yan yükleme
+4. Okuyucuyu değiştirilebilir yap: Expo Go'da Tesseract, deneme sürümünde ML Kit
+5. Tanıyıcı kalıbı ve güven puanı (`src/core/`)
+6. Okuma hatası düzeltici (0/O, 1/I/l, 5/S, 8/B)
+7. Süre ifadeleri ("son 3 gün", "48 saat geçerli")
+8. Kupon tanıyıcı (`turkce-taniyici-ekle` skill'iyle)
+9. Kupon olmayan kodları ayırma
+10. Duolingo tarzı tema: renkler, yazı tipi, açık ve koyu
+11. Ortak bileşenler: kalın düğme, kart, ilerleme çubuğu, rozet
+12. Animasyonlar ("hareketi azalt" ayarına uyar)
+13. Karşılama ekranı
+14. Galeri izni ekranı
+15. Ekran görüntülerini bulma ve sayma
+16. Tarama
+17. Tarama ekranı
+18. Telefonda saklama (SQLite)
+19. Tekrarları birleştirme
+20. Sonuç listesi ve "Emin değilim" kutusu
+21. Yükleniyor, boş ve hata halleri; erişilebilirlik; Türkçe metinler
+22. Açılış ekranı değişimi ve geliştirici menüsü
+23. Doğrulama kapısı ve sahibe deneme rehberi
+24. 👤 Sahip kendi galerisinde dener
+25. Bulunan hataları düzeltme, kalıcı testler
 
 ---
 
@@ -16,7 +71,7 @@ Sahibin tüm projelerinde geçerli kişisel standardı `~/.claude/CLAUDE.md`'de 
 - **Kıdemli yazılımcı kalitesi.** Kod, arayüz ve kullanıcı deneyimi kusursuz olacak; mimari bozulmayacak. Her ekran küçük ve büyük iPhone'larda, farklı Android telefonlarda, büyük yazı ayarında ve klavye açıkken düzgün çalışmalı. Yalnızca bir cihazda deneyip bitirme.
 - **Ürün sahibi yönetir, kodu Claude yazar.** Sahip kod yazmaz. Türkçe yazar. Ona Türkçe ve ürün diliyle (kullanıcı ne görür, neye mal olur) anlat, teknik ayrıntıyla değil.
 - **Aceleyle çıkış yok.** Hedef, kapalı betadan (TestFlight + Google Play kapalı testi) sonra iki mağazada aynı gün cilalı bir çıkış.
-- **Belgeler aynı oturumda güncellenir.** Karar alınınca `docs/YOL-HARITASI.md`; bir iş bitince ya da yeni iş çıkınca `docs/YAPILACAKLAR.md` (`[x]` + tarih, en üstteki durum tablosu); yeni bir modül, kural ya da tuzak öğrenilince bu dosya. Biriktirip toplu güncellemek en pahalı yol.
+- **Belgeler aynı oturumda güncellenir.** Karar alınınca `docs/YOL-HARITASI.md`; bir iş bitince ya da yeni iş çıkınca `docs/YAPILACAKLAR.md` (`[x]` + tarih, "▶️ Sıradaki iş" satırı ve "Genel durum" tablosu; kurallar yukarıdaki "Çalışma Sırası"nda); yeni bir modül, kural ya da tuzak öğrenilince bu dosya. Biriktirip toplu güncellemek en pahalı yol.
 - **Bir kural burada yazıyor diye kendiliğinden işlemez.** Örneğin "paket kurulunca çalışan sunucuyu yeniden başlat" kuralını uygulamak senin işin. Sahip tuhaf bir hata bildirene kadar bekleme.
 - **Dürüst rapor.** Doğrulanmayanı doğrulanmış gibi sunma. Test geçmediyse çıktısıyla söyle. Bir adım atlandıysa söyle.
 
@@ -118,8 +173,8 @@ src/
     ├── RecognitionPlayground.tsx  # Yapıştırılan metinde bulunanları gösteren ekran
     └── samples.ts              # Uydurma örnek ekran metinleri
 docs/
-├── YOL-HARITASI.md             # Kararlar ve aşamalar (sahip okur)
-└── YAPILACAKLAR.md             # Ayrıntılı iş listesi (sahip okur)
+├── YOL-HARITASI.md             # Kararlar ve bölümler (sahip okur)
+└── YAPILACAKLAR.md             # Sıralı, numaralı iş listesi (sahip okur)
 ekran-goruntuleri/              # Sahibin gerçek ekran görüntüleri; gitignore'da, asla commit edilmez
 ```
 

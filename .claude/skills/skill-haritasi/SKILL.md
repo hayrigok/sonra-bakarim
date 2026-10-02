@@ -82,7 +82,7 @@ Bir skill bu kurallarla çelişirse kurallar kazanır. Örnek: superpowers'ın b
 | Paralel ajanlar | `dispatching-parallel-agents`, `subagent-driven-development` | Yalnızca sahip isterse; ek maliyet getirir |
 | Sahibin belgeleri | `sahip-belgeleri` | YOL-HARITASI ve YAPILACAKLAR |
 
-## 🚀 Mağaza ve yayın (6-8. aşamalar)
+## 🚀 Mağaza ve yayın (Bölüm 11-13)
 
 | İş | Skill | Not |
 |---|---|---|
@@ -103,7 +103,7 @@ Gerektiğinde sahibe sorularak `.claude/settings.local.json`'dan açılır.
 | `frontend-mobile-security` | ~320 | Web odaklı (XSS); yerine `/security-review` |
 | `unit-testing` | ~190 | `test-driven-development` yetiyor |
 | `security-guidance` | 0, ama arka planda Claude çağırıp kullanım hakkı harcıyor | Hassas kod bitince `/security-review` elle çalıştırılır |
-| Kullanıcı skill'leri `app-lifecycle`, `deep-linking`, `design-system`, `ui-ux-pro-max` | küçük | İlk ikisi native Android/iOS örnekli, Paylaş menüsü aşamasında (5) açılabilir. Son ikisi web ve genel tasarım; tema `expo-design-system` ile kurulur. |
+| Kullanıcı skill'leri `app-lifecycle`, `deep-linking`, `design-system`, `ui-ux-pro-max` | küçük | İlk ikisi native Android/iOS örnekli, Paylaş menüsü bölümünde (Bölüm 10) açılabilir. Son ikisi web ve genel tasarım; tema `expo-design-system` ile kurulur. |
 
 **Hiç kullanılmayanlar (kurulu eklentilerin içinde gelse de):**
 - `eas-update`, `eas-update-insights`: Uygulamaya internetten güncelleme indirir. Android'de internet izni kararı bekliyor (YAPILACAKLAR, karar 6).
@@ -111,7 +111,7 @@ Gerektiğinde sahibe sorularak `.claude/settings.local.json`'dan açılır.
 - `expo-data-fetching`: Uygulama ağa çıkmıyor.
 - `eas-hosting`, `expo-dom`, `expo-web-to-native`, `expo-brownfield`, `expo-app-clip`, `expo-project-structure`: Web, mevcut native uygulama ya da sıfırdan proje işleri.
 - `using-git-worktrees`: Tek kişilik, tek dallı çalışıyoruz.
-- `design`, `banner-design` (kullanıcı skill'i, kapalı): Google Gemini'ye istek gönderir. Logo aşamasında sahibe sorulmadan açılmaz.
+- `design`, `banner-design` (kullanıcı skill'i, kapalı): Google Gemini'ye istek gönderir. Logo işinde (Bölüm 8, #80) sahibe sorulmadan açılmaz.
 - playwright MCP: Uygulama mobil. Tarayıcı açmak gerekirse önce sahibe sor.
 
 Yeni bir eklenti ya da skill kurulursa bu haritayı güncelle.

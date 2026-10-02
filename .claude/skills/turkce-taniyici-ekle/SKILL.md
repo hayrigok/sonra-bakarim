@@ -45,7 +45,7 @@ Hepsi temiz geçmeden bitti deme.
 
 ## 7. Belgeler (aynı oturumda)
 - `CLAUDE.md` → "Mimari" bölümüne bu tanıyıcının alt başlığını ekle: ne tanır, akış, bilinçli kurallar ve sınırlar. "Test Altyapısı" tablosuna test dosyasını ekle, toplam test sayısını güncelle. "Proje Yapısı" ağacını güncelle.
-- `docs/YAPILACAKLAR.md` → biten maddeleri `[x]` + tarihle işaretle, durum tablosundaki aşama ilerlemesini güncelle.
+- `docs/YAPILACAKLAR.md` → biten maddeleri `[x]` + tarihle işaretle; "Genel durum" tablosunu ve en üstteki "▶️ Sıradaki iş" satırını güncelle. Bölüm bitince CLAUDE.md'deki "Şu anki bölüm" kısmını bir sonraki bölümün maddeleriyle değiştir.
 - Bir karar alındıysa `docs/YOL-HARITASI.md`'ye tarihli yaz.
 
 ## 8. Sahibe rapor
